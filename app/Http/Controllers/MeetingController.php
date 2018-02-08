@@ -10,7 +10,7 @@ use GuzzleHttp\Client;
 
 class MeetingController extends Controller
 {
-    public function saveApiData()
+    public function saveApiData($state="CA", $city="Ocean Beach")
     {
         $uri = "http://tools.referralsolutionsgroup.com/meetings-api/v1/";
         $client = new Client( ['headers' => [
@@ -25,26 +25,41 @@ class MeetingController extends Controller
                 'method' => 'byLocals',
                 'params' =>
                     array( 0 => array( 0=> array(
-                        'state_abbr' => 'CA',
-                        'city' => 'Chula Vista' ))
+                        'state_abbr' => $state,
+                        'city' => $city ))
                     )
 
             ]
         ]);
 
-
-//        $response = $client->post('url', [
-//            GuzzleHttp\RequestOptions::JSON => ['foo' => 'bar']
-//        ]);
         $status =  $res->getStatusCode();
-        // "200";
-        // 'application/json; charset=utf8'
         $body =  $res->getBody();
         $data = json_decode($body);
-        print_r($data);
+        $data = (array) $data;
+        $this->objToArray($data, $arr);
+        print_r($arr);
 
-        echo $status . "<br />";;
-//        echo $body;
-        // {"type":"User"...'
+        echo $status . "<br />";
+    }
+
+   public function objToArray($obj, &$arr){
+        if(!is_object($obj) && !is_array($obj)){
+            $arr = $obj;
+            return $arr;
+        }
+
+        foreach ($obj as $key => $value)
+        {
+            if (!empty($value))
+            {
+                $arr[$key] = array();
+                $this->objToArray($value, $arr[$key]);
+            }
+            else
+            {
+                $arr[$key] = $value;
+            }
+        }
+        return $arr;
     }
 }

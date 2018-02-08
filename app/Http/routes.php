@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'MeetingController@saveApiData');
-Route::get('/{state}/{city}', 'function ($state, $city)')
+Route::get('/state/{state}/city/{city}', 'MeetingController@saveApiData');
