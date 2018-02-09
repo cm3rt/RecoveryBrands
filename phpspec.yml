@@ -1,0 +1,6 @@
+suites:
+  recoverybrands_suite:
+    namespace: RecoveryBrands
+    psr4_prefix: RecoveryBrands
+    src_path: app
+    spec_path: app
