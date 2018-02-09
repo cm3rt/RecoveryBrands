@@ -10,14 +10,28 @@ class LocationMaker
 {
     private $username;
     private $password;
-    private $array;
+    private $json;
     private $status;
     private $body;
 
 
-    public function retrieve($array)
+    public function retrieve($state, $city)
     {
-        return $this->saveApiData("CA", "Chula Vista");
+       $this->json = [
+        'auth' => ['oXO8YKJUL2X3oqSpFpZ5', 'JaiXo2lZRJVn5P4sw0bt'],
+        'json' => [
+            'jsonrpc' => '2.0',
+            'id'=> 1,
+            'method' => 'byLocals',
+            'params' =>
+                array( 0 => array( 0=> array(
+                    'state_abbr' => $state ,
+                    'city' => $city ))
+                )
+
+        ]
+    ];
+        return $this->getMeetingsData($this->json);
     }
 
     public function status($argument1, $argument2)
@@ -25,34 +39,20 @@ class LocationMaker
         return 200;
     }
 
-    public function saveApiData($state="CA", $city="Chula Vista")
+    public function getMeetingsData($data)
     {
         $uri = "http://tools.referralsolutionsgroup.com/meetings-api/v1/";
         $client = new Client( ['headers' => [
             'Content-Type' => 'application/json'
         ]
         ]);
-        $res = $client->request('POST', 'http://tools.referralsolutionsgroup.com/meetings-api/v1/', [
-            'auth' => ['oXO8YKJUL2X3oqSpFpZ5', 'JaiXo2lZRJVn5P4sw0bt'],
-            'json' => [
-                'jsonrpc' => '2.0',
-                'id'=> 1,
-                'method' => 'byLocals',
-                'params' =>
-                    array( 0 => array( 0=> array(
-                        'state_abbr' => $state,
-                        'city' => $city ))
-                    )
-
-            ]
-        ]);
+        $res = $client->request('POST', 'http://tools.referralsolutionsgroup.com/meetings-api/v1/', $data);
 
         $this->status =  $res->getStatusCode();
         $body =  $res->getBody();
         $data = json_decode($body);
         $data = (array) $data;
-        $this->objToArray($data['result'], $arr);
-        return $this->objToArray($data['result'], $arr)[0]['id'];
+        return $this->objToArray($data['result'], $arr);
 
     }
 
@@ -75,5 +75,16 @@ class LocationMaker
             }
         }
         return $arr;
+    }
+
+    public function getLocations()
+    {
+        $meetingsData = $this->retrieve("CA", "Chula Vista");
+//        $argument1 = $this->json;
+        foreach($meetingsData as $key=>$meeting){
+            $address[$key] = $meeting['address'];
+//            array_push($address[$key],$arg['id']);
+        }
+        return $address[0];
     }
 }
