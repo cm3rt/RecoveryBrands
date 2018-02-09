@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RecoveryBrands\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use RecoveryBrands\Http\Requests;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
 class MeetingController extends Controller
 {
-    public function saveApiData($state="CA", $city="Ocean Beach")
+    public function saveApiData($state="CA", $city="Chula Vista")
     {
         $uri = "http://tools.referralsolutionsgroup.com/meetings-api/v1/";
         $client = new Client( ['headers' => [
@@ -36,7 +36,7 @@ class MeetingController extends Controller
         $body =  $res->getBody();
         $data = json_decode($body);
         $data = (array) $data;
-        $this->objToArray($data, $arr);
+        $this->objToArray($data['result'], $arr);
         print_r($arr);
 
         echo $status . "<br />";

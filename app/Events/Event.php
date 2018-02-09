@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace RecoveryBrands\Events;
 
 abstract class Event
 {

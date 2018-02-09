@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace RecoveryBrands\Jobs;
 
 use Illuminate\Bus\Queueable;
 

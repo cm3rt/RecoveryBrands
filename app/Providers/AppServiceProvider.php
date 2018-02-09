@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace RecoveryBrands\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
