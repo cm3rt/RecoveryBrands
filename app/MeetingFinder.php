@@ -2,9 +2,12 @@
 
 namespace RecoveryBrands;
 
-
-
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use League\Flysystem\Adapter\Local;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
+use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
 
 /**
  * MeetingFinder is a class that gathers AA/NA Meetings within the city
@@ -166,8 +169,20 @@ class MeetingFinder
     {
         $uri = "http://tools.referralsolutionsgroup.com/meetings-api/v1/";
 
-
-        $client = new Client(['headers' => [
+        $stack=HandlerStack::create();
+        $stack->push(
+            new CacheMiddleware(
+                new GreedyCacheStrategy(
+                    new FlysystemStorage(
+                        new Local("/tmp/sitex")
+                    ),
+                    180
+                )
+            ),
+            "cache"
+        );
+        $client = new Client(["handler" => $stack,
+            'headers' => [
             'Content-Type' => 'application/json'
         ]
         ]);
