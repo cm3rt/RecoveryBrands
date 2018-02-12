@@ -2,17 +2,25 @@
 
 namespace RecoveryBrands;
 
-use RecoveryBrands\Http\Requests;
-use GuzzleHttp\Exception\GuzzleException;
-use League\Flysystem\Adapter\Local;
 
 
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use Kevinrob\GuzzleCache\CacheMiddleware;
-use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
-use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
 
+/**
+ * MeetingFinder is a class that gathers AA/NA Meetings within the city
+ * and state that you input, as well as the day
+ *
+ *
+ * Example usage:
+ * $mtgFinder = new MeetingFinder(String $address, String $destination, String $day);
+ * $results = $mtgFinder->retrieveMeetingData();
+ *
+ * @package  MeetingManager
+ * @author   Joseph Alai <josephalai@gmail.com>
+ * @version  1
+ * @access   public
+
+ */
 class MeetingFinder
 {
     private $json;

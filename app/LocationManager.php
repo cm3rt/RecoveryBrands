@@ -2,8 +2,6 @@
 
 namespace RecoveryBrands;
 
-use RecoveryBrands\Http\Requests;
-use GuzzleHttp\Exception\GuzzleException;
 use League\Flysystem\Adapter\Local;
 
 
@@ -13,7 +11,21 @@ use Kevinrob\GuzzleCache\CacheMiddleware;
 use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
 use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
 
+/**
+ * LocationManager is a class that gathers Coordinates, finds realtime driving
+ * distance (not coordinate equations), and other Map Data from Google Maps API
+ *
+ *
+ * Example usage:
+ * $locMgr = new LocationManager(String $address, String $destination);
+ * $results = $locMgr->showSortedMeetings($uri);
+ *
+ * @package  MeetingManager
+ * @author   Joseph Alai <josephalai@gmail.com>
+ * @version  1
+ * @access   public
 
+ */
 class LocationManager
 {
     private $address;
@@ -25,6 +37,10 @@ class LocationManager
 
 
 
+    /*
+     * @param $address
+     * @param $destination
+     */
     public function __construct($address="", $destination="")
     {
         if ($address != "") {
@@ -38,23 +54,26 @@ class LocationManager
 
     }
 
+    /*
+     * @param $address
+     *
+     */
     public function setAddress($address){
         $this->address = $address;
         $this->addressCoordinates = $this->getCoordinates();
 
     }
 
+    /*
+     * $param $destination
+     * $param $destinationId
+     */
     public function setDestination($destination, $destinationId){
         $this->destination = $destination;
         $this->destinationId = $destinationId;
         $this->destinationCoordinates = $this->getCoordinates($destination);
     }
 
-    public function calculate($api=0){
-        if ($api != 0){
-
-        }
-    }
 
     /*
      * Gets distance by ref'ng API each time (slow)
@@ -96,6 +115,10 @@ class LocationManager
     }
 
 
+    /*
+     * @param $uri: uri for maps
+     * @return array
+     */
     public function getMapData($uri)
 
     {
@@ -128,6 +151,11 @@ class LocationManager
         return $array ;
 
     }
+
+    /*
+     * @param $address
+     * @return array
+     */
 
     public function getCoordinates($address="")
     {

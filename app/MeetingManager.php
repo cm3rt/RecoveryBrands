@@ -2,6 +2,27 @@
 
 namespace RecoveryBrands;
 
+/**
+ * MeetingManager is a class that gathers, arranges,and returns AA/NA Meetings
+ * by location
+ *
+ * MeetingManager depends on LocationManager and MeetingFinder. It connects to
+ * multiple APIs, and finds the meetings in your area, sorted by distance and
+ * day.
+ *
+ * Example usage:
+ * $mtgMgr = new MeetingManager($locationManager, $meetingFinger, $cityOfMeetings,
+ *                              $stateOfMeetings,
+ *                              $addressOrigin);
+ * $results = $mtgMgr->showSortedMeetings();
+ *
+ * @package  MeetingManager
+ * @author   Joseph Alai <josephalai@gmail.com>
+ * @version  1
+ * @access   public
+
+ */
+
 class MeetingManager
 {
     private $locMgr;
@@ -28,6 +49,10 @@ class MeetingManager
 
     }
 
+    /*
+     * @params $html
+     * @return array
+     */
     public function showSortedMeetings($html=false){
 
         $mtgList = $this->mtgList;
@@ -38,6 +63,11 @@ class MeetingManager
             return $mtgList;
     }
 
+    /*
+     * @param $a
+     * @param $b
+     * return integer
+     */
     function cmp($a, $b)
     {
         return ($a['distance'] < $b['distance']) ? -1 : (($a['distance'] > $b['distance']) ? 1 : 0);
