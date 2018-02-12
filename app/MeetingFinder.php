@@ -4,7 +4,14 @@ namespace RecoveryBrands;
 
 use RecoveryBrands\Http\Requests;
 use GuzzleHttp\Exception\GuzzleException;
+use League\Flysystem\Adapter\Local;
+
+
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
+use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
 
 class MeetingFinder
 {
@@ -150,6 +157,8 @@ class MeetingFinder
     public function connectToApi($data)
     {
         $uri = "http://tools.referralsolutionsgroup.com/meetings-api/v1/";
+
+
         $client = new Client(['headers' => [
             'Content-Type' => 'application/json'
         ]

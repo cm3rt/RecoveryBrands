@@ -4,7 +4,15 @@ namespace RecoveryBrands;
 
 use RecoveryBrands\Http\Requests;
 use GuzzleHttp\Exception\GuzzleException;
+use League\Flysystem\Adapter\Local;
+
+
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Kevinrob\GuzzleCache\Storage\FlysystemStorage;
+
 
 class LocationManager
 {
@@ -14,6 +22,8 @@ class LocationManager
     private $destinationCoordinates;
     private $results;
     private $destinationId;
+
+
 
     public function __construct($address="", $destination="")
     {
@@ -25,6 +35,7 @@ class LocationManager
             $this->destination=$destination;
             $this->destinationCoordinates = $this->getCoordinates($destination);
         }
+
     }
 
     public function setAddress($address){
@@ -88,16 +99,29 @@ class LocationManager
     public function getMapData($uri)
 
     {
+
+        $stack = HandlerStack::create();
+        $stack->push(
+            new CacheMiddleware(
+                new PrivateCacheStrategy(
+                    new FlysystemStorage(
+                        new Local("/tmp/sitex")
+                    )
+                )
+            ),
+            "cache"
+        );
+
         $client = new Client( ['headers' => [
             'Content-Type' => 'application/json'
-        ]
+        ],
+            'handler'=>$stack,
         ],
             ['defaults' => [
                 'verify' => 'false'
             ]]);
         $res = $client->request('GET', $uri);
 
-        $this->status =  $res->getStatusCode();
         $body =  $res->getBody();
         $data = json_decode($body);
         $array = ObjToArray::convertMe($data, $array);
