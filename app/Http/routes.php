@@ -21,4 +21,5 @@ Route::get('/test', function(){
    $loc = new \RecoveryBrands\LocationManager();
    $finder = new \RecoveryBrands\MeetingFinder();
    $mtgMgr = new \RecoveryBrands\MeetingManager($loc, $finder, "New Brunswick", "NJ");
+   return $mtgMgr->showSortedMeetings();
 });

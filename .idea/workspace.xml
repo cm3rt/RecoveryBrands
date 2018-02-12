@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbdf5822-6b55-46fa-8032-77fbc8c6ece2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/LocationManager.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Distance.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/LocationMaker.php" afterPath="$PROJECT_DIR$/app/MeetingFinder.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/spec/DistanceSpec.php" afterPath="$PROJECT_DIR$/app/spec/LocationManagerSpec.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/spec/LocationMakerSpec.php" afterPath="$PROJECT_DIR$/app/spec/MeetingFinderSpec.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/MeetingManager.php" afterPath="$PROJECT_DIR$/app/MeetingManager.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +51,8 @@
           <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="22" column="77" lean-forward="false" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+                <state relative-caret-position="238">
+                  <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -81,8 +77,8 @@
           <file leaf-file-name="MeetingManager.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="34" column="65" lean-forward="false" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+                <state relative-caret-position="425">
+                  <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -161,8 +157,8 @@
         <option value="$PROJECT_DIR$/app/spec/MeetingManagerSpec.php" />
         <option value="$PROJECT_DIR$/app/LocationManager.php" />
         <option value="$PROJECT_DIR$/app/MeetingFinder.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/MeetingManager.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -427,12 +423,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518120494896</updated>
-      <workItem from="1518120499418" duration="41392000" />
+      <workItem from="1518120499418" duration="43322000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41392000" />
+    <option name="totallyTimeSpent" value="43322000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -732,18 +728,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="77" lean-forward="false" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
+        <state relative-caret-position="425">
+          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="34" column="65" lean-forward="false" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+        <state relative-caret-position="238">
+          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding />
         </state>
       </provider>
