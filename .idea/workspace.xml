@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbdf5822-6b55-46fa-8032-77fbc8c6ece2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/LocationManager.php" afterPath="$PROJECT_DIR$/app/LocationManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/MeetingFinder.php" afterPath="$PROJECT_DIR$/app/MeetingFinder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/MeetingManager.php" afterPath="$PROJECT_DIR$/app/MeetingManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,12 +94,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MeetingManager.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MeetingManager.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1156">
-                  <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+                <state relative-caret-position="-119">
+                  <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/readme.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="289">
+                    <caret line="17" column="92" lean-forward="true" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
+                    <folding />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -186,6 +197,7 @@
         <option value="$PROJECT_DIR$/app/LocationManager.php" />
         <option value="$PROJECT_DIR$/app/MeetingFinder.php" />
         <option value="$PROJECT_DIR$/app/MeetingManager.php" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -378,7 +390,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="serviceprovider&#9;null&#9;null&#10;.env&#9;FILE&#9;file://C:/wamp/laravel/addictionbrands/.env&#10;CurlFac&#9;null&#9;null&#10;Meeting&#9;FILE&#9;file://C:/wamp/laravel/addictionbrands/app/Http/Controllers/MeetingController.php&#10;split&#9;ACTION&#9;SplitVertically&#10;vertical split&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="readme&#9;FILE&#9;file://C:/wamp/laravel/addictionbrands/readme.md&#10;serviceprovider&#9;null&#9;null&#10;.env&#9;FILE&#9;file://C:/wamp/laravel/addictionbrands/.env&#10;CurlFac&#9;null&#9;null&#10;Meeting&#9;FILE&#9;file://C:/wamp/laravel/addictionbrands/app/Http/Controllers/MeetingController.php&#10;split&#9;ACTION&#9;SplitVertically&#10;vertical split&#9;null&#9;null" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -468,12 +480,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518120494896</updated>
-      <workItem from="1518120499418" duration="58405000" />
+      <workItem from="1518120499418" duration="58900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58405000" />
+    <option name="totallyTimeSpent" value="58900000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -758,6 +770,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/MeetingFinder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/LocationManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -772,19 +800,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/MeetingFinder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/MeetingManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="289">
+            <caret line="17" column="92" lean-forward="true" selection-start-line="17" selection-start-column="92" selection-end-line="17" selection-end-column="92" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
