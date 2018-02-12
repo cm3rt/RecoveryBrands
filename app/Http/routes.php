@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', 'MeetingController@saveApiData');
+Route::get('/', function (){
+return "Welcome";
+});
 //Route::get('/state/{state}/city/{city}', 'MeetingController@saveApiData')->where('name', '[A-Za-z]+');
 Route::get('/city/{city}/state/{state}/address/{address}/day/{day?}', 'MeetingController@startApi')->where('state', '[A-Za-z]+');

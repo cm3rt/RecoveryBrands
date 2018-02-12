@@ -43,7 +43,6 @@ class MeetingManager
      */
     public function __construct(LocationManager $loc, MeetingFinder $finder, $city= "", $state="", $day="", $address="")
     {
-
         return $this->returnMeetingData($loc, $finder, $city, $state, $day, $address);
 
 

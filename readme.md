@@ -13,3 +13,7 @@ It shows:
 - unit testing (Phpspec)
 
 Just require the dependencies with composer, require the needed namespaces, and run the app!
+
+format is as follows:
+
+http://localhost:8000/city/San Diego/state/CA/address/517 4th Ave San Diego CA 92101/day/monday
