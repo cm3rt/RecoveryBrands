@@ -3,19 +3,22 @@
 <html>
 <body>
 {{--<h1>Hello, {{ $meetings }}</h1>--}}
-<h1>At least the array was passed. Wasn't it?</h1>
+<h1>Meeting List</h1>
+<h2>Meetings in: {{$city . ', ' . $state}}</h2>
+<h2>Nearest to: {{ucwords($address)}}</h2>
 @foreach($meetings as $k => $meeting)
+    <h3>{{$meeting['meeting_name']}}</h3>
     Meeting Type:  {{$meeting['meeting_type']}} <br />
-    Meeting Name: {{$meeting['meeting_name']}} <br />
     Details: {{$meeting['details']}}<br />
     Language: {{$meeting['language']}}<br />
-    {{$meeting['raw_address']}}<br />
-    {{$meeting['location']}}<br />
+    Location: {{$meeting['raw_address']}}<br />
+    {{round($meeting['distance'], 2)}} Miles away <br />
 
-    @foreach ($meeting['time'] as $timeInfo)
-        {{ucwords($timeInfo)}} <br />
+    @foreach ($meeting['time'] as $key=>$timeInfo)
+        @if (strtolower($key) != "id")
+        {{ucwords($key) . ": " .  ucwords($timeInfo)}} <br />
+        @endif
     @endforeach
-
 @endforeach
 
 

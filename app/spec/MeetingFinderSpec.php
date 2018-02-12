@@ -32,16 +32,7 @@ class MeetingFinderSpec extends ObjectBehavior
         $this->retrieveMeetingData()->shouldBeArray();
     }
 
-    function it_returns_status_when_connected(){
-        $this->beConstructedWith("San Diego", "CA");
-        $this->status()->shouldReturn(200);
-    }
 
-    function it_contains_locations(){
-//        $this->retrieve("CA", "Chula Vista")->shouldBeArray();
-
-        $this->getAddress()->shouldHaveKey("street");
-    }
 
     function it_returns_array_from_single_argument(){
         $this->formatArgsProperly("Chula Vista, CA")->shouldReturn(array("Chula Vista", "CA"));

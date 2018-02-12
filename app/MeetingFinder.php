@@ -9,19 +9,19 @@ use GuzzleHttp\Client;
 class MeetingFinder
 {
     private $json;
-    private $status;
     private $city;
     private $state;
     private $returnData;
+    private $day;
 
     /*
      * @param city
      * @param state
      * @return array
      */
-    public function __construct($city = "", $state="")
+    public function __construct($city = "", $state="", $day = "")
     {
-        $this->formatArgsProperly($city, $state);
+        $this->formatArgsProperly($city, $state, $day);
         return $this->retrieveMeetingData();
     }
 
@@ -32,11 +32,18 @@ class MeetingFinder
         $this->city = $city;
     }
 
+
     /*
      * @param $state
      */
     public function setState($state){
         $this->state = $state;
+    }
+    /*
+     * @param $day
+     */
+    public function setDay($day){
+        $this->day = $day;
     }
 
     /*
@@ -58,9 +65,10 @@ class MeetingFinder
     public function retrieveMeetingData()
     {
 
-        if ($this->state == ""){
+        if ($this->city == ""){
             $this->state = "CA";
             $this->city = "San Diego";
+
         }
 
        $this->json = [
@@ -70,9 +78,13 @@ class MeetingFinder
             'id'=> 1,
             'method' => 'byLocals',
             'params' =>
-                array( 0 => array( 0=> array(
-                    'state_abbr' => $this->state ,
-                    'city' => $this->city ))
+                array(
+                    0 => array(
+                        0=> array(
+                            'state_abbr' => $this->state ,
+                            'city' => $this->city
+                        )
+                    )
                 )
 
         ]
@@ -80,14 +92,7 @@ class MeetingFinder
         return $this->getMeetingsData($this->json);
     }
 
-    /*
-     * @return int
-     */
-    public function status()
-    {
 
-        return ($this->status != "") ? $this->status : 0;
-    }
 
     /*
      * @params $data
@@ -98,34 +103,34 @@ class MeetingFinder
         $this->connectToApi($data);
         $data = json_decode($this->returnData);
         $data = (array) $data;
-        return ObjToArray::convertMe($data['result'], $arr);
+        ObjToArray::convertMe($data['result'], $arr);
+        if ($this->day != "") {
 
-    }
-
-
-    /*
-     * @return array
-     */
-    public function getAddress()
-    {
-        $meetingsData = $this->retrieveMeetingData("CA", "Chula Vista");
-//        $argument1 = $this->json;
-        foreach($meetingsData as $key=>$meeting){
-            $address[$key] = $meeting['address'];
+            foreach ($arr as $key => $meeting) {
+                if ($meeting['time']['day'] == $this->day) {
+                } else
+                    unset ($arr[$key]);
+            }
         }
-        if (is_array($address))
-            return $address[0];
-        else
-            return 0;
+        return $arr;
     }
+
+
+
 
     /**
      * @param $city
      * @param $state
      * @return array
      */
-    public function formatArgsProperly($city="", $state="")
+    public function formatArgsProperly($city="", $state="", $day="")
     {
+        if ($day != ""){
+            $this->day = $day;
+        }
+        else{
+            $this->day = "monday";
+        }
         if ($city != "" && $state == "") {
             list($this->city, $this->state) = explode(",", $city);
             $this->setCity(trim($this->city));

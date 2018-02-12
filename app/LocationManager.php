@@ -105,9 +105,12 @@ class LocationManager
 
     }
 
-    public function getCoordinates()
+    public function getCoordinates($address="")
     {
-        $address = $this->address;
+        if ($address == ""){
+            $address = $this->address;
+        }
+
         $c_key = 'AIzaSyDKUre1kbkBeZsRJb1gC1ZWxhF2GYbGoBM';
         $address = str_replace(" ", "+", $address);
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$c_key";

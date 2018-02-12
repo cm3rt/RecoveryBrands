@@ -9,29 +9,21 @@ class MeetingManager
     private $mtgList;
     private $originCity;
     private $originState;
-    private $origin;
     private $originLat;
     private $originLng;
     private $sortedMeetings;
 
-    public function __construct(LocationManager $loc, MeetingFinder $finder, $city= "", $state="")
+    /*
+     * @param $loc
+     * @param $finder
+     * @param $city
+     * @param $state
+     * @param $day
+     */
+    public function __construct(LocationManager $loc, MeetingFinder $finder, $city= "", $state="", $day="", $address="")
     {
 
-        $finder->setCity($city);
-        $finder->setState($state);
-        $loc->setAddress("$city, $state");
-        $coordinates = $loc->getCoordinates();
-        $this->originLat = $coordinates['lat'];
-        $this->originLng = $coordinates['lng'];
-
-
-        $this->sortedMeetings = $meetingData = $this->sortMeetingData($finder);
-
-
-        $this->locMgr = $loc;
-        $this->mtgFinder = $finder;
-        $this->mtgList = $meetingData;
-
+        return $this->returnMeetingData($loc, $finder, $city, $state, $day, $address);
 
 
     }
@@ -48,7 +40,7 @@ class MeetingManager
 
     function cmp($a, $b)
     {
-        return strcmp($a["distance"], $b["distance"]);
+        return ($a['distance'] < $b['distance']) ? -1 : (($a['distance'] > $b['distance']) ? 1 : 0);
     }
 
 
@@ -86,6 +78,36 @@ class MeetingManager
         }
 
         usort($meetingData, array($this, "cmp"));
+        return $meetingData;
+    }
+
+    /**
+     * @param LocationManager $loc
+     * @param MeetingFinder $finder
+     * @param $city
+     * @param $state
+     * @param $day
+     * @param $address
+     * @return mixed
+     */
+    public function returnMeetingData(LocationManager $loc, MeetingFinder $finder, $city, $state, $day, $address)
+    {
+        $finder->setCity($city);
+        $finder->setState($state);
+        $finder->setDay($day);
+
+        $loc->setAddress($address);
+        $coordinates = $loc->getCoordinates($address);
+        $this->originLat = $coordinates['lat'];
+        $this->originLng = $coordinates['lng'];
+
+
+        $this->sortedMeetings = $meetingData = $this->sortMeetingData($finder);
+
+
+        $this->locMgr = $loc;
+        $this->mtgFinder = $finder;
+        $this->mtgList = $meetingData;
         return $meetingData;
     }
 

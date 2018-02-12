@@ -13,11 +13,11 @@
 
 Route::get('/', 'MeetingController@saveApiData');
 //Route::get('/state/{state}/city/{city}', 'MeetingController@saveApiData')->where('name', '[A-Za-z]+');
-Route::get('/city/{city}/state/{state}', function ($city, $state) {
+Route::get('/city/{city}/state/{state}/address/{address}/day/{day?}', function ($city, $state, $address, $day="") {
     $loc = new \RecoveryBrands\LocationManager();
     $finder = new \RecoveryBrands\MeetingFinder();
-    $mtgMgr = new \RecoveryBrands\MeetingManager($loc, $finder, $city, $state);
+    $mtgMgr = new \RecoveryBrands\MeetingManager($loc, $finder, $city, $state, $day, $address);
     $array = $mtgMgr->showSortedMeetings(true);
-    return view('meetings')->with("meetings", $array);
-//    return view('meetings', ['meetings' => 'none']);
+    return view('meetings')->with(["meetings" => $array, 'city' => $city,
+    'state'=> $state, 'day' => $day, 'address'=>$address]);;
 })->where('state', '[A-Za-z]+');
