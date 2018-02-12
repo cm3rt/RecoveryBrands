@@ -186,7 +186,7 @@ class MeetingFinder
             'Content-Type' => 'application/json'
         ]
         ]);
-        $res = $client->request('POST', 'http://tools.referralsolutionsgroup.com/meetings-api/v1/', $data);
+        $res = $client->request('POST', $uri, $data);
 
         $this->status = $res->getStatusCode();
         $this->returnData = $res->getBody();

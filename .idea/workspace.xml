@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dbdf5822-6b55-46fa-8032-77fbc8c6ece2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/MeetingFinder.php" afterPath="$PROJECT_DIR$/app/MeetingFinder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,8 +87,8 @@
           <file leaf-file-name="MeetingFinder.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/MeetingFinder.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="258">
-                  <caret line="184" column="12" lean-forward="false" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="12" />
+                <state relative-caret-position="2111">
+                  <caret line="188" column="41" lean-forward="false" selection-start-line="188" selection-start-column="41" selection-end-line="188" selection-end-column="41" />
                   <folding>
                     <element signature="e#34#56#0#PHP" expanded="true" />
                   </folding>
@@ -483,12 +482,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518120494896</updated>
-      <workItem from="1518120499418" duration="59284000" />
+      <workItem from="1518120499418" duration="59403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59284000" />
+    <option name="totallyTimeSpent" value="59403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -808,8 +807,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/MeetingFinder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="184" column="12" lean-forward="false" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="12" />
+        <state relative-caret-position="2111">
+          <caret line="188" column="41" lean-forward="false" selection-start-line="188" selection-start-column="41" selection-end-line="188" selection-end-column="41" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
           </folding>
