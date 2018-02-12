@@ -36,8 +36,14 @@ class MeetingManager
 
     }
 
-    public function showSortedMeetings(){
-        return $this->mtgList;
+    public function showSortedMeetings($html=false){
+
+        $mtgList = $this->mtgList;
+        if ($html == false) {
+            return var_dump($mtgList);
+        }
+        else
+            return $mtgList;
     }
 
     function cmp($a, $b)
