@@ -5,7 +5,7 @@ namespace spec\RecoveryBrands;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class LocationMakerSpec extends ObjectBehavior
+class MeetingFinderSpec extends ObjectBehavior
 {
     protected $array = [
         'auth' => ['oXO8YKJUL2X3oqSpFpZ5', 'JaiXo2lZRJVn5P4sw0bt'],
@@ -24,20 +24,30 @@ class LocationMakerSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('RecoveryBrands\LocationMaker');
+        $this->shouldHaveType('RecoveryBrands\MeetingFinder');
     }
 
     function it_retrieves_json_from_array(){
 
-        $this->retrieve("CA", "Chula Vista")->shouldBeArray();
+        $this->retrieveMeetingData()->shouldBeArray();
     }
 
     function it_returns_status_when_connected(){
-        $this->status("username", "password")->shouldReturn(200);
+        $this->beConstructedWith("San Diego", "CA");
+        $this->status()->shouldReturn(200);
     }
 
     function it_contains_locations(){
 //        $this->retrieve("CA", "Chula Vista")->shouldBeArray();
-        $this->getLocations()->shouldHaveKey("street");
+
+        $this->getAddress()->shouldHaveKey("street");
+    }
+
+    function it_returns_array_from_single_argument(){
+        $this->formatArgsProperly("Chula Vista, CA")->shouldReturn(array("Chula Vista", "CA"));
+    }
+
+    function it_returns_array_from_double_argument(){
+        $this->formatArgsProperly("Chula Vista", "CA")->shouldReturn(array("Chula Vista", "CA"));
     }
 }
